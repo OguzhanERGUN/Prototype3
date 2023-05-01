@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject spawn;
+    public GameObject[] Obstacles;
     private Vector3 spawnPos = new Vector3(20,0,0);
     private float startDelay = 4;
     private float repeadRate = 3;
@@ -30,7 +30,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (playerControllerScript.gameOver == false)
         {
-            Instantiate(spawn, spawnPos, spawn.transform.rotation);
+            int index = Random.Range(0, 4);
+            Instantiate(Obstacles[index], spawnPos, Obstacles[index].transform.rotation);
         }
     }
 }
